@@ -1,0 +1,8 @@
+libphp.so: /home/ravhi/randoman/deepjb/php2shell-lab/lab-8335/libphp.so
+ea069762fa225a2d61ebf613db5686d7c29823acf641424d596f78fcaa1cdccb  /home/ravhi/randoman/deepjb/php2shell-lab/lab-8335/libphp.so
+--- symbols ---
+zval_ptr_dtor 000000000049ec50
+php_session_reset_id 0000000000355b70
+zif_system    00000000003ac080
+php_session_reset_id 0000000000355b70
+zval_ptr_dtor 000000000049ec50

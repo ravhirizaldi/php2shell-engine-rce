@@ -2,16 +2,17 @@
 
 `exploit.py` is the URL-only driver for the engine-level
 CVE-2026-109618/109619 chain. It carries calibrated profiles for
-**8.2.34**, **8.3.29**, and **8.4.26** (stock `php.ini-production`,
-128M), and gates fixed releases (`8.2.35+`, `8.3.36+`, `8.4.27+`,
-`8.5.12+`) as not vulnerable before sending a chain request.
+**8.2.34**, **8.3.29**, **8.3.35**, and **8.4.26** (stock
+`php.ini-production`, 128M), and gates fixed releases (`8.2.35+`,
+`8.3.36+`, `8.4.27+`, `8.5.12+`) as not vulnerable before sending a chain
+request.
 
 ## Usage
 
 Start a lab target, then run the driver and paste its URL:
 
 ```bash
-cd ../lab-8234       # or ../lab-8329, ../official-lab
+cd ../lab-8234       # or ../lab-8329, ../lab-8335, ../official-lab
 ./run.sh
 cd ../oneshot-8426
 python3 exploit.py

