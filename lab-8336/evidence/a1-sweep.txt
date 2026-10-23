@@ -1,0 +1,17 @@
+# A1 arming sweep — patched build PHP 8.3.36
+# image php:8.3.36-apache, stock php.ini-production, single-worker prefork
+# variant: mk_a1 defaults, big=78, path + Q, chunked body
+progress  status                     bytes  set-cookie  elapsed
+      10  HTTP/1.1 200 OK              253          44  0.08s
+     100  HTTP/1.1 200 OK              253          44  0.16s
+     300  HTTP/1.1 200 OK              253          44  0.16s
+     500  HTTP/1.1 200 OK              253          44  0.12s
+     800  HTTP/1.1 200 OK              253          44  0.07s
+    1000  HTTP/1.1 200 OK              253          44  0.15s
+    1200  HTTP/1.1 200 OK              253          44  0.12s
+    1500  HTTP/1.1 200 OK              253          44  0.09s
+    2000  HTTP/1.1 200 OK              253          44  0.16s
+    4000  HTTP/1.1 200 OK              253          44  0.12s
+    8000  HTTP/1.1 200 OK              253          44  0.09s
+   16000  HTTP/1.1 200 OK              253          44  0.12s
+   32000  HTTP/1.1 200 OK              253          44  0.16s

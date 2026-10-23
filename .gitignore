@@ -29,3 +29,16 @@ official-lab/docker/tls/*.pem
 .DS_Store
 *.swp
 *.tmp
+
+# Multi-build lab artifacts (large, regenerated from the recorded image digests)
+/lab-*/libphp.so
+/lab-*/out/
+/oneshot-8426/logs/
+/oneshot-8426/out/
+
+# 8.5.11 calibration is parked; its local lab is not part of this release
+/lab-8511/
+
+# Wild-target helper material kept out of this lab-only repository
+/oneshot-8426/DORKS.md
+/oneshot-8426/check_target.sh

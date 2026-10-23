@@ -1,0 +1,5 @@
+=== PHP2SHELL one-shot live exploit — URL is the only input ===
+(local lab target: ./run.sh, e.g. http://127.0.0.1:18118/index.php)
+Target URL: [*] preflight: HTTP 200 body=b'OK\n' powered=PHP/8.2.35
+[!] target build PHP/8.2.35 is at or above the fixed release 8.2.35: the OOM/early-reset engine primitives are patched.
+[*] verdict: NOT VULNERABLE to the engine-level CVE-2026-109618/109619 chain; no chain attempted.

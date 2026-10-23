@@ -1,0 +1,5 @@
+zval_ptr_dtor          0000000000491910
+php_session_reset_id   000000000034d6f0
+zif_system             00000000003a1da0
+php_session_reset_id   000000000034d6f0
+zval_ptr_dtor          0000000000491910

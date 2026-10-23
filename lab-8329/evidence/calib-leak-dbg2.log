@@ -1,0 +1,11 @@
+
+=== 2026-10-23T08:39:16.669865+00:00 ===
+[*] leak-only: A1 + B1 (runtime address resolution)
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1251293 set-cookie=[1251074]
+      decoded=819208 zval_ptr_dtor=0x7f2db550eb50 -> libphp=0x7f2db5071000
+      chunk buckets: [('0x7f2dab400000', 3527), ('0x7f2db5400000', 1168), ('0x7f2dabe00000', 165)]
+      main candidates: 0x7f2dabe00000(165)
+      zif_system candidates: 0x7f2db541cdc0

