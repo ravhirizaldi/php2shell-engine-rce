@@ -20,8 +20,8 @@ records give the affected branches as `8.2.* < 8.2.35`,
 `8.3.* < 8.3.36`, `8.4.* < 8.4.27`, and `8.5.* < 8.5.12`. The target in
 this repo, 8.4.26, is the **last vulnerable 8.4 release**; 8.4.27 is the
 **first fixed release**. The lab proves that point, not the full advisory
-range. Patched releases are boundary controls, not targets; the repo does
-not yet contain full patched-image negative controls.
+range. Patched releases are boundary controls, not targets; this lab does
+not run them, so no experimental patch-boundary result is claimed.
 
 Sources: [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
 [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),

@@ -8,8 +8,9 @@ offsets; the heap bases are resolved from the B1 cookie on every command.
 8.5.12**. The CVE records give the affected branches as
 `8.2.* < 8.2.35`, `8.3.* < 8.3.36`, `8.4.* < 8.4.27`, and
 `8.5.* < 8.5.12`. This calibration is for 8.4.26, the last vulnerable 8.4
-release; 8.4.27 is the first fixed release. Patched builds are negative
-controls, not targets; they have not yet been run as full controls here.
+release; 8.4.27 is the first fixed release. Patched builds are boundary
+controls, not targets; this lab does not run them, so no experimental
+patch-boundary result is claimed.
 Sources: [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
 [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
 [GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
@@ -295,16 +296,16 @@ chain re-leaks and works again (11/11 commands after the parser fix).
    - `FAKE_ARRAY_DELTA` and `MAIN_BUCKET_COUNT` in `pure_shell.py`
 
 4. Patched builds (`8.2.35`, `8.3.36`, `8.4.27`, `8.5.12` and later) are
-   outside the advisory-defined vulnerable range and are negative controls,
+   outside the advisory-defined vulnerable range and are boundary controls,
    not targets. The advisory and CVE records define those fixed releases:
    [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
    [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
    [GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
    [CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618),
    [CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619).
-   The patch closes the stale-decoder path, but this lab has not yet run
-   those builds as full negative controls; do not record a boundary proof
-   until it does.
+   The patch closes the stale-decoder path, but this lab does not run
+   patched builds. Treat the fixed releases as the advisory boundary only;
+   do not record an experimental patch-boundary proof.
 
 The public `dinosn` 8.5.11 9bie-class port is a different carrier and
 prerequisite set (`display_errors=On`, `memory_limit` 16M/32M, a 24 MiB

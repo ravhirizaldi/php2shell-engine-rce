@@ -8,8 +8,9 @@ extension and its PID evidence are in `evidence/multi/` and summarized in
 **Advisory boundary.** PHP fixed both CVEs in **8.2.35, 8.3.36, 8.4.27, and
 8.5.12**. `8.4.26` is the **last vulnerable 8.4 release**; `8.4.27` is the
 **first fixed release**. This evidence covers the 8.4.26 point, not the full
-advisory range. Patched releases are boundary controls, not targets; they
-have not yet been run as full controls here. Sources:
+advisory range. Patched releases are boundary controls, not targets; this
+lab does not run them, so no experimental patch-boundary result is claimed.
+Sources:
 [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
 [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
 [GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
