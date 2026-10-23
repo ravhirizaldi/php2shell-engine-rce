@@ -14,7 +14,7 @@ Start a lab target, then run the driver and paste its URL:
 ```bash
 cd ../lab-8234       # or ../lab-8329, ../lab-8335, ../official-lab
 ./run.sh
-cd ../oneshot-8426
+cd ../oneshot
 python3 exploit.py
 # target: http://127.0.0.1:18134/index.php
 # id

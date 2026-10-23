@@ -30,7 +30,7 @@ echo "[2/3] target"
 "$HERE/run.sh"
 
 echo "[3/3] full chain proof"
-python3 "$HERE/../oneshot-8426/pure_shell.py" \
+python3 "$HERE/../oneshot/pure_shell.py" \
   --host 127.0.0.1 --port "$PORT" --path /index.php \
   --outdir "$HERE/out" --zif "$ZIF" --dtor "$DTOR" \
   --a1-progress 1000 --b1-fake-len 0xC8000 --b1-spec "$SPEC" \

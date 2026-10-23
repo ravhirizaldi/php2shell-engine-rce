@@ -26,8 +26,8 @@ Or step by step:
 ```
 ./offsets.sh        # libphp.so -> zif_system / zval_ptr_dtor
 ./run.sh            # start target on 127.0.0.1:18129
-python3 ../oneshot-8426/pure_shell.py --port 18129 --zif 0x... --dtor ... --leak
-python3 ../oneshot-8426/pure_shell.py --port 18129 --zif 0x... --dtor ... --exec 'id'
+python3 ../oneshot/pure_shell.py --port 18129 --zif 0x... --dtor ... --leak
+python3 ../oneshot/pure_shell.py --port 18129 --zif 0x... --dtor ... --exec 'id'
 ```
 
 ## Status
@@ -35,5 +35,5 @@ python3 ../oneshot-8426/pure_shell.py --port 18129 --zif 0x... --dtor ... --exec
 **Complete — SOLID.** Eight chain executions across five fresh ASLR
 instances, plus a same-child repeat and a three-command one-shot session.
 The result, parameters, and evidence manifest are in
-[`RESULT.md`](RESULT.md). The 8.3.36 fixed-release control is in
-[`../lab-8336/RESULT.md`](../lab-8336/RESULT.md).
+[`RESULT.md`](RESULT.md). The last affected 8.3 release is proven in
+[`../lab-8335/RESULT.md`](../lab-8335/RESULT.md).

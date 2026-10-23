@@ -14,7 +14,7 @@ import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 LAB = "/home/ravhi/randoman/deepjb/php2shell-lab/lab-8329"
-PS = "/home/ravhi/randoman/deepjb/php2shell-lab/oneshot-8426"
+PS = "/home/ravhi/randoman/deepjb/php2shell-lab/oneshot"
 sys.path.insert(0, PS)
 import pure_shell as ps  # noqa: E402
 

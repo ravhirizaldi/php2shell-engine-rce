@@ -27,9 +27,9 @@ The vendor advisory fixes both CVEs in **8.2.35, 8.3.36, 8.4.27, and
 `8.2.* < 8.2.35`, `8.3.* < 8.3.36`, `8.4.* < 8.4.27`, and
 `8.5.* < 8.5.12`. The target here, 8.4.26, is the **last vulnerable 8.4
 release**; 8.4.27 is the **first fixed release**. This report proves that
-point, not the full advisory range. Patched releases are boundary controls,
-not targets; this lab does not run them, so no experimental patch-boundary
-result is claimed.
+point, not the full advisory range. Patched releases are outside the target
+set; this lab does not run them, so no experimental patch-boundary result is
+claimed.
 Sources: [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
 [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
 [GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
@@ -342,7 +342,7 @@ OOB listener, and the error ledger.
   app-precondition ports. 8.5.11 uses a different carrier/prerequisite set
   (`zif_system 0x5996e0`, `zval_ptr_dtor 0x7b47a0` in the public port;
   `display_errors` and memory settings differ) and is not interchangeable.
-- **Patched negative controls.** The PHP advisory defines the first fixed
+- **Patched releases.** The PHP advisory defines the first fixed
   releases as **8.2.35, 8.3.36, 8.4.27, and 8.5.12**. Patched builds are
   outside this lab's target set by policy; they are not run, and no
   patched-image negative control is claimed. The FPM note records that
@@ -429,7 +429,7 @@ and evidence pack.
 The vendor advisory defines the affected range as `8.2.* < 8.2.35`,
 `8.3.* < 8.3.36`, `8.4.* < 8.4.27`, and `8.5.* < 8.5.12`; this report proves
 the 8.4.26 point inside that range, not the whole range. 8.4.27 is the first
-fixed 8.4 release and is a boundary control, not a target.
+fixed 8.4 release; the driver gates it, and it is not a target.
 
 The remaining work is vulnerable-side coverage, not the primary result:
 additional 8.5.x calibration, the 8.2/8.3 stock mod_php endpoints, larger

