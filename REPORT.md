@@ -18,8 +18,22 @@ end to end with **no application-side PHP and no authentication**. The chain
 uses the PHP session upload-progress callback before RINIT, defeats ASLR over
 pure HTTP with an in-band heap/libphp leak, and reaches `zif_system` through
 a forged `zend_reference` / `zend_array` destructor. Command execution runs
-as `www-data` (`uid=33`). The public report labels the issue CVSS 9.2
-critical; this lab confirms the engine-level RCE on the stock stack.
+as `www-data` (`uid=33`). The PHP advisory and both CVE records assign
+CVSS v4.0 9.2 (critical); this lab confirms the engine-level RCE on the
+stock stack.
+
+The vendor advisory fixes both CVEs in **8.2.35, 8.3.36, 8.4.27, and
+8.5.12**. The CVE records encode the affected branches as
+`8.2.* < 8.2.35`, `8.3.* < 8.3.36`, `8.4.* < 8.4.27`, and
+`8.5.* < 8.5.12`. The target here, 8.4.26, is the **last vulnerable 8.4
+release**; 8.4.27 is the **first fixed release**. This report proves that
+point, not the full advisory range. Patched releases are boundary controls,
+not targets; the full patched-image negative controls remain untested.
+Sources: [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
+[GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
+[GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
+[CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618),
+[CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619).
 
 The chain was reproduced with the public 9bie reference (7/7), then packaged
 as an interactive tool that completed 11/11 proof-producing commands on the
@@ -327,10 +341,13 @@ OOB listener, and the error ledger.
   app-precondition ports. 8.5.11 uses a different carrier/prerequisite set
   (`zif_system 0x5996e0`, `zval_ptr_dtor 0x7b47a0` in the public port;
   `display_errors` and memory settings differ) and is not interchangeable.
-- **Patched negative controls.** 8.4.27 / 8.5.12 patched images were not
+- **Patched negative controls.** The PHP advisory defines the first fixed
+  releases as **8.2.35, 8.3.36, 8.4.27, and 8.5.12**. The lab has not yet
+  run those builds as full negative controls. 8.4.27/8.5.12 images were not
   tested; availability was not established. The FPM note records that
-  `php:8.3-fpm` resolved to the patched 8.3.36 and that state did not
-  survive there.
+  `php:8.3-fpm` resolved to 8.3.36 (the first fixed 8.3 release) and that
+  the stale-decoder state did not survive there; that is a supporting
+  observation, not a complete mod_php boundary control.
 - **Multi-worker scope.** The multi path is validated on the bounded
   4-worker pool only. Unbounded or larger pools need a larger A1 wave and
   are not claimed.
@@ -408,7 +425,22 @@ transport are all backed by reproducible local evidence. The deliverable is
 one interactive tool plus the lab launchers, calibration notes, error ledger,
 and evidence pack.
 
+The vendor advisory defines the affected range as `8.2.* < 8.2.35`,
+`8.3.* < 8.3.36`, `8.4.* < 8.4.27`, and `8.5.* < 8.5.12`; this report proves
+the 8.4.26 point inside that range, not the whole range. 8.4.27 is the first
+fixed 8.4 release and is a boundary control, not a target.
+
 The remaining work is coverage, not the primary result: additional 8.5.x
-calibration, patched-image negative controls, larger multi-worker pools, and
-a stable HTTP-proxy TLS path. Those are explicitly out of the validated set
-and are not claimed.
+calibration, advisory-confirmed fixed-image negative controls, larger
+multi-worker pools, and a stable HTTP-proxy TLS path. Those are explicitly
+out of the validated set and are not claimed.
+
+---
+
+## 14. References
+
+- PHP security advisory (21 Oct 2026): <https://www.php.net/archive/2026.php#2026-10-21-5>
+- GHSA-w8hw-w9fx-j79w — CVE-2026-109618: <https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w>
+- GHSA-6wmf-4rv5-p3rp — CVE-2026-109619: <https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp>
+- CVE-2026-109618: <https://www.cve.org/CVERecord?id=CVE-2026-109618>
+- CVE-2026-109619: <https://www.cve.org/CVERecord?id=CVE-2026-109619>

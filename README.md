@@ -13,6 +13,22 @@ findings, evidence, and limitations are in [`REPORT.md`](REPORT.md).
 
 **Primary deliverable:** [`official-lab/pure_shell.py`](official-lab/pure_shell.py).
 
+## Advisory boundary
+
+PHP fixed both CVEs in **8.2.35, 8.3.36, 8.4.27, and 8.5.12**. The CVE
+records give the affected branches as `8.2.* < 8.2.35`,
+`8.3.* < 8.3.36`, `8.4.* < 8.4.27`, and `8.5.* < 8.5.12`. The target in
+this repo, 8.4.26, is the **last vulnerable 8.4 release**; 8.4.27 is the
+**first fixed release**. The lab proves that point, not the full advisory
+range. Patched releases are boundary controls, not targets; the repo does
+not yet contain full patched-image negative controls.
+
+Sources: [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
+[GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
+[GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
+[CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618),
+[CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619).
+
 ## Layout
 
 | Path | Contents |

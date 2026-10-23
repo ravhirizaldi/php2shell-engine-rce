@@ -1,5 +1,15 @@
 # FPM2SHELL (CVE-2026-109619 unserializer path) — module 1+2 session, 2026-10-22
 
+**Advisory boundary.** PHP fixed both CVEs in **8.2.35, 8.3.36, 8.4.27, and
+8.5.12**. This lab uses `php:8.3.35-fpm`, the **last vulnerable 8.3
+release**; `8.3.36` is the **first fixed 8.3 release**. The earlier 8.3.36
+observations are patched-control observations, not vulnerable-build results.
+Sources: [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
+[GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
+[GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
+[CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618),
+[CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619).
+
 ## Lab
 - nginx:alpine -> php:8.3-fpm (Docker network f2snet), static pm, max_children=1
 - memory_limit=16M, post_max_size=64M, max_input_vars=100000, upload_progress On
@@ -51,9 +61,10 @@
   python3 ltx_fpm2shell.py --url ... log      # fatal-location evidence
 
 ## CORRECTION (same day, critical)
-The lab was running php:8.3-fpm = **8.3.36 — the PATCHED release** (built
-Oct 21 2026). Every "state does not survive" measurement (F-06) was against
-fixed code. Lab rebuilt on **php:8.3.35-fpm (vulnerable)**. Re-measured:
+The lab was running php:8.3-fpm = **8.3.36 — the first fixed 8.3 release**
+(built Oct 21 2026; advisory-confirmed). Every "state does not survive"
+measurement (F-06) was against fixed code. Lab rebuilt on
+**php:8.3.35-fpm (vulnerable, last vulnerable 8.3 release)**. Re-measured:
 
 - F-06 is REFUTED for vulnerable builds.
 - F-09 (SOLID, vulnerable 8.3.35): after the in-decode fatal, read directly at

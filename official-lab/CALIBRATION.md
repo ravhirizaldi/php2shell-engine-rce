@@ -4,6 +4,18 @@ Everything here was measured on the lab target, not copied from a write-up.
 The only build-specific constants the tool requires are the two symbol
 offsets; the heap bases are resolved from the B1 cookie on every command.
 
+**Advisory boundary.** PHP fixed both CVEs in **8.2.35, 8.3.36, 8.4.27, and
+8.5.12**. The CVE records give the affected branches as
+`8.2.* < 8.2.35`, `8.3.* < 8.3.36`, `8.4.* < 8.4.27`, and
+`8.5.* < 8.5.12`. This calibration is for 8.4.26, the last vulnerable 8.4
+release; 8.4.27 is the first fixed release. Patched builds are negative
+controls, not targets; they have not yet been run as full controls here.
+Sources: [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
+[GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
+[GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
+[CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618),
+[CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619).
+
 ## 1. Build and offsets
 
 | Item | Value |
@@ -282,8 +294,17 @@ chain re-leaks and works again (11/11 commands after the parser fix).
    - `fake_ref_b.py --vl`, `--n1`, `--n2`, `--ref-start`, `--ref-step`
    - `FAKE_ARRAY_DELTA` and `MAIN_BUCKET_COUNT` in `pure_shell.py`
 
-4. Patched builds (`8.4.27`, `8.5.12`, `8.3.36`, `8.2.35` and later) should
-   be negative; the patch closes the stale-decoder path.
+4. Patched builds (`8.2.35`, `8.3.36`, `8.4.27`, `8.5.12` and later) are
+   outside the advisory-defined vulnerable range and are negative controls,
+   not targets. The advisory and CVE records define those fixed releases:
+   [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
+   [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
+   [GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
+   [CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618),
+   [CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619).
+   The patch closes the stale-decoder path, but this lab has not yet run
+   those builds as full negative controls; do not record a boundary proof
+   until it does.
 
 The public `dinosn` 8.5.11 9bie-class port is a different carrier and
 prerequisite set (`display_errors=On`, `memory_limit` 16M/32M, a 24 MiB

@@ -27,6 +27,19 @@ delivery is validated both ways: `--oob` returns `id` over a callback, and
 Evidence for the official target is in `evidence/`; TLS/OOB evidence is in
 `evidence/tls/`.
 
+**Advisory boundary.** PHP fixed both CVEs in **8.2.35, 8.3.36, 8.4.27, and
+8.5.12**. The CVE records give the affected branches as
+`8.2.* < 8.2.35`, `8.3.* < 8.3.36`, `8.4.* < 8.4.27`, and
+`8.5.* < 8.5.12`. `8.4.26` is the **last vulnerable 8.4 release**; `8.4.27`
+is the **first fixed release** and is not a target. This lab proves the
+8.4.26 point, not the full advisory range. Patched releases are negative
+controls, not targets; they have not yet been run as full controls here.
+Sources: [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
+[GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
+[GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
+[CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618),
+[CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619).
+
 ## Quick start
 
 From the repository root:
@@ -204,8 +217,10 @@ lives, which is why a full re-leak per command still succeeds.
   wrapper. The `/out` wrapper leaves about 154 bytes; the `--oob` wrapper
   leaves about 100 bytes depending on the callback URL.
 - **Offsets are build-specific.** The defaults are for `php:8.4.26-apache`
-  (`zif_system +0x465370`, `zval_ptr_dtor +0x65eb60`). Other builds need
-  their own offsets, and possibly different heap-shaping parameters.
+  (`zif_system +0x465370`, `zval_ptr_dtor +0x65eb60`), the last vulnerable
+  8.4 release. `8.4.27` is the advisory-confirmed first fixed release and is
+  a boundary control, not a target. Other builds need their own offsets, and
+  possibly different heap-shaping parameters.
 - **One known bug, fixed.** The first run used
   `0x7fffffffffffffff` as the pointer upper bound and treated `0x41…`
   fillers as pointers. The correct 48-bit bound is `0x7fffffffffff`; see

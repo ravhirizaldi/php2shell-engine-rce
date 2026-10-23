@@ -26,6 +26,16 @@ The lab is up at `http://127.0.0.1:18130` and the chain is reproduced:
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
 ```
 
+**Advisory boundary.** PHP fixed both CVEs in **8.2.35, 8.3.36, 8.4.27, and
+8.5.12**. This port uses `php:8.3.33-apache`, inside the vulnerable 8.3
+branch; 8.3.35 is the **last vulnerable 8.3 release**, 8.3.36 the **first
+fixed**. This is a supporting app-precondition port, not the stock 8.4.26
+claim. Sources: [PHP advisory](https://www.php.net/archive/2026.php#2026-10-21-5),
+[GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w),
+[GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp),
+[CVE-2026-109618](https://www.cve.org/CVERecord?id=CVE-2026-109618),
+[CVE-2026-109619](https://www.cve.org/CVERecord?id=CVE-2026-109619).
+
 Calibrated for the current prefork master:
 
 ```text
