@@ -1,0 +1,23 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f886f0fb3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x55b8610d76a0
+Breakpoint 2 at 0x7f886f0bf090
+Breakpoint 3 at 0x55b86117c0a0
+VARTMP#1 vh=0x7ffdfe9132d8 d=0x7f886e26c000 head=38c0266e887f0000 last=0x7f886e26c038 used=0x3fa data0=0x7f886e26e100 marker=('0x7f886e26a018', 'd-8168', 'fileoff_if_base=0x1fe8')
+VARTMP#2 vh=0x7ffdfe9132d8 d=0x7f886e26c000 head=00c0276e887f0000 last=0x7f886e27c000 used=0x3fa data0=0x7f886e26e100 marker=('0x7f886e26a018', 'd-8168', 'fileoff_if_base=0x1fe8')
+RCDTOR ref=0x7f886e26e180 rc=0 type=10
+SYSTEM rdi=0x7f886e26e300 cmd=id>/tmp/f2s_pwn
+[Detaching after vfork from child process 1547]
+
+Program received signal SIGABRT, Aborted.
+0x00007f886f10069c in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#0  0x00007f886f10069c in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f886f0abc42 in raise () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f886f0944ac in abort () from /lib/x86_64-linux-gnu/libc.so.6
+#3  0x000055b860e2d61c in ?? ()
+#4  0x000055b860e2d982 in ?? ()
+#5  0x000055b861191358 in zend_array_destroy ()
+#6  0x000055b86117c0f5 in ?? ()
+#7  0x000055b86118ea62 in zend_hash_update ()
+[Inferior 1 (process 1492) detached]

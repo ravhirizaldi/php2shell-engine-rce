@@ -1,0 +1,61 @@
+FPM2SHELL — FPM port of the 9bie Set-Cookie / PS(id) leak: NEGATIVE
+====================================================================
+Target: php:8.3.35-fpm in the deepjb lab, single worker, master PID 1,
+memory_limit=16M.  These probes only ask whether a post-RINIT fatal can
+leave PS(id) / PS(send_cookie) across requests so that the public
+pre-RINIT Set-Cookie leak can be replayed on FPM.
+
+1) Pre-RINIT OOM (multipart parser / session callback before RINIT)
+   Probe: t_pre_oom.py, ~12 MB pad request.
+   Result: HTTP 502; FPM log:
+     WARNING: [pool www] child <old> exited with code 70 ...
+     NOTICE: [pool www] child <new> started
+   Worker state is gone.  A pre-RINIT OOM cannot carry anything to B.
+
+2) Post-RINIT OOM inside session_start() (huge app-built session id)
+   Endpoint: app/leak_a.php
+     $sid = str_repeat('a', 4_000_000); session_id($sid); session_start();
+   The 12 MB php_url_encode() allocation fails after
+   php_session_initialize() set PS(session_status)=active and before/during
+   php_session_reset_id().
+   Result:
+     before PID=2196
+     status 500
+     after  PID=2196          (worker survived: post-RINIT bailout)
+     PS globals @ 0x55b86220a580 id=0x0 send_cookie=1 (field at +0x98 = 26)
+   The session RSHUTDOWN ran and php_rshutdown_session_globals() released
+   PS(id).  No dangling id for B's END cleanup.
+
+3) Post-RINIT unfcaught exception inside a user save handler open()
+   Endpoint: app/leak_x.php (SessionHandlerInterface::open throws).
+   Result:
+     before PID=2112
+     status 500
+     after  PID=2112          (worker survived)
+     PS globals @ 0x55b86220a580 id=0x0 send_cookie=1
+   Same conclusion: the exception shutdown also runs the session RSHUTDOWN.
+
+4) Pre-RINIT OOM from a 6 MB POST field (parser side)
+   Result: HTTP 502; worker PID 2157 -> 2164; child exited with code 70.
+   Confirms the parser-phase OOM is fatal to the worker.
+
+Source confirmation (/tmp/session.c, 8.3.35):
+  * php_session_initialize() sets PS(session_status)=php_session_active at
+    its first line, before s_open and php_session_reset_id().
+  * PHP_RSHUTDOWN_FUNCTION(session) unconditionally calls
+    php_rshutdown_session_globals(), which zend_string_release_ex(PS(id))
+    and sets PS(id)=NULL.
+  * The pre-RINIT mod_php chain survives because request startup fails
+    before the module RSHUTDOWN runs; on FPM the worker exits 70, so the
+    state is lost either way.
+
+Conclusion:
+The public 9bie leak stages (PS(id) + Set-Cookie OOB) do not transfer to
+FPM.  The FPM2SHELL chain therefore uses calibrated addresses for the
+stale decoder D and libc system(), or an application-level info leak.
+This is a boundary of the current chain, not a bug in the request
+sequence: the chain itself is 5/5 reproducible (see
+evidence/m3_app_pure2.out and evidence/m3_app_gdb.out).
+
+Probes (lab only): app/leak_a.php, app/leak_x.php, app/leak_probe.php,
+t_pre_oom.py, g_ps.gdb.

@@ -1,0 +1,3 @@
+A2 body bytes: 279369
+A2                 status='HTTP/1.0 500 Internal Server Error' conn=b'close' clen=b'0' te=b'' body=0 cookie=0
+A2 socket did not survive: EOFError('closed before response headers')

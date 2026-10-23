@@ -1,0 +1,40 @@
+date_utc: 2026-10-23T03:04:17Z
+image: php:8.4.26-apache
+image_id: sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a
+repo_digest: ["php@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a"]
+created: 2026-10-21T00:32:27.545208424Z
+container:
+name: /DESKTOP-GQ7T0MS
+image: sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a
+mounts: [{"Type":"bind","Source":"/home/ravhi/randoman/deepjb/php2shell-lab/official-lab/docker/apache.conf","Destination":"/etc/apache2/conf-enabled/zz-p2s.conf","Mode":"ro","RW":false,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/ravhi/randoman/deepjb/php2shell-lab/official-lab/docker/www","Destination":"/var/www/html","Mode":"ro","RW":false,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/ravhi/randoman/deepjb/php2shell-lab/official-lab/out","Destination":"/out","Mode":"","RW":true,"Propagation":"rprivate"}]
+php:
+PHP 8.4.26 (cli) (built: Oct 21 2026 00:31:19) (NTS)
+Copyright (c) The PHP Group
+Built by https://github.com/docker-library/php
+apache:
+Server version: Apache/2.4.69 (Debian)
+Server built:   2026-10-01T16:54:08
+sapi/build:
+cli 8.4.26 8 NTS
+os:
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+config:
+display_errors => Off => Off
+display_startup_errors => Off => Off
+max_file_uploads => 20 => 20
+max_input_vars => 1000 => 1000
+max_multipart_body_parts => -1 => -1
+memory_limit => 128M => 128M
+output_buffering => 0 => 0
+post_max_size => 8M => 8M
+session.save_path => no value => no value
+session.sid_length => 32 => 32
+session.use_strict_mode => Off => Off
+libphp:
+51663cf883b1223436d4c99f31dd0225735ea5573665e4242621eee7f4ee679c  /usr/lib/apache2/modules/libphp.so
+libphp_offsets:
+ZIF_OFFSET=0x465370
+DTOR_OFFSET=0x65eb60

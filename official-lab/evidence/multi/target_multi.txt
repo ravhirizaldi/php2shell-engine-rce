@@ -1,0 +1,43 @@
+=== multi target identity 2026-10-23T03:34:15Z ===
+container: p2s-multi-18112 (2ec475412566)
+hostname: 2ec475412566
+image: php:8.4.26-apache
+image_id: sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a
+=== php ===
+PHP 8.4.26 (cli) (built: Oct 21 2026 00:31:19) (NTS)
+=== apache ===
+Server version: Apache/2.4.69 (Debian)
+=== ini ===
+display_errors => Off => Off
+max_file_uploads => 20 => 20
+max_input_vars => 1000 => 1000
+max_multipart_body_parts => -1 => -1
+memory_limit => 128M => 128M
+output_buffering => 0 => 0
+post_max_size => 8M => 8M
+session.save_path => no value => no value
+session.sid_length => 32 => 32
+session.use_strict_mode => Off => Off
+=== workers ===
+    1     0 Ss   apache2         apache2 -DFOREGROUND
+   50     1 S    apache2         apache2 -DFOREGROUND
+   51     1 S    apache2         apache2 -DFOREGROUND
+   53     1 S    apache2         apache2 -DFOREGROUND
+=== config ===
+# KeepAlive Off (see docker/apache.conf).
+KeepAlive On
+KeepAliveTimeout 60
+MaxKeepAliveRequests 0
+LogFormat "%h %l %u %t \"%r\" %>s %b pid=%P" p2s
+# The stock vhost has its own CustomLog, which overrides the global one for
+    CustomLog /proc/self/fd/1 p2s
+    StartServers           4
+    MinSpareServers        2
+    MaxSpareServers        4
+    MaxRequestWorkers      4
+    ServerLimit            4
+=== mounts ===
+/home/ravhi/randoman/deepjb/php2shell-lab/official-lab/multi-out -> /out ()
+/home/ravhi/randoman/deepjb/php2shell-lab/official-lab/docker/apache-multi.conf -> /etc/apache2/conf-enabled/zz-p2s.conf (ro)
+/home/ravhi/randoman/deepjb/php2shell-lab/official-lab/docker/www -> /var/www/html (ro)
+

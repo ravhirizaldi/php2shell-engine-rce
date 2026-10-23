@@ -1,0 +1,13 @@
+bodies: A1=1060211 B1=33128677 A2=279369
+=== round 1: poison 8 workers with A1 ===
+  A1[1] HTTP/1.0 500 Internal Server Error
+  A1[2] HTTP/1.0 500 Internal Server Error
+  A1[3] HTTP/1.0 500 Internal Server Error
+  A1[4] HTTP/1.0 500 Internal Server Error
+  A1[5] HTTP/1.0 500 Internal Server Error
+  A1[6] HTTP/1.0 500 Internal Server Error
+  A1[7] HTTP/1.0 500 Internal Server Error
+  A1[8] HTTP/1.0 500 Internal Server Error
+=== round 1: B1 leak on any poisoned child ===
+  B1 failed: EOFError('closed before response headers')
+no B1 leak after 1 rounds

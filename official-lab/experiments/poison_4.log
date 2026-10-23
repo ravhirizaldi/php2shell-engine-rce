@@ -1,0 +1,16 @@
+bodies: A1=1060211 B1=33128677 A2=279369
+=== round 1: poison 4 workers with A1 ===
+  A1[1] HTTP/1.0 500 Internal Server Error
+  A1[2] HTTP/1.0 500 Internal Server Error
+  A1[3] HTTP/1.0 500 Internal Server Error
+  A1[4] HTTP/1.0 500 Internal Server Error
+=== round 1: B1 leak on any poisoned child ===
+  B1 status='HTTP/1.1 200 OK' cookie=50 leak=no
+=== round 2: poison 4 workers with A1 ===
+  A1[1] HTTP/1.0 500 Internal Server Error
+  A1[2] HTTP/1.0 500 Internal Server Error
+  A1[3] HTTP/1.0 500 Internal Server Error
+  A1[4] HTTP/1.0 500 Internal Server Error
+=== round 2: B1 leak on any poisoned child ===
+  B1 status='HTTP/1.1 200 OK' cookie=50 leak=no
+no B1 leak after 2 rounds

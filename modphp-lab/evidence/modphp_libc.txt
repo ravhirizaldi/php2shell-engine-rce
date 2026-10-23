@@ -1,0 +1,2 @@
+ldd (Debian GLIBC 2.41-12+deb13u4) 2.41
+system offset: 0000000000053090

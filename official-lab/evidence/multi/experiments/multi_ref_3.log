@@ -1,0 +1,10 @@
+[try 1] A1: END-cleanup send_cookie OOM
+[try 1] B1: stale-id OOB read (chunk base + libphp)
+      leak failed: RuntimeError('no heap pointers in leak window')
+[try 2] A1: END-cleanup send_cookie OOM
+[try 2] B1: stale-id OOB read (chunk base + libphp)
+      leak failed: RuntimeError('no heap pointers in leak window')
+[try 3] A1: END-cleanup send_cookie OOM
+[try 3] B1: stale-id OOB read (chunk base + libphp)
+      leak failed: RuntimeError('no heap pointers in leak window')
+[4/4] all attempts failed

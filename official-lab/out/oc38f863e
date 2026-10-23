@@ -1,0 +1,3 @@
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+Linux 45649b436440 5.15.153.1-microsoft-standard-WSL2 #1 SMP Fri Mar 29 23:14:13 UTC 2024 x86_64 GNU/Linux
+/var/www/html

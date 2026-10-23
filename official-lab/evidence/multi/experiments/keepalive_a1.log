@@ -1,0 +1,8 @@
+=== baseline keep-alive affinity ===
+GET /pid.php #1    status='HTTP/1.1 200 OK' conn=b'Keep-Alive' clen=b'3' te=b'' body=3 cookie=0
+GET /pid.php #2    status='HTTP/1.1 200 OK' conn=b'Keep-Alive' clen=b'3' te=b'' body=3 cookie=0
+baseline pids: 21 21 (same=True)
+=== A1 + GET on one connection ===
+A1 body bytes: 1060211
+A1                 status='HTTP/1.0 500 Internal Server Error' conn=b'close' clen=b'0' te=b'' body=0 cookie=0
+A1 socket did not survive: EOFError('closed before response headers')

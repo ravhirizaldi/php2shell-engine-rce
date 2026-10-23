@@ -1,0 +1,2 @@
+B1 body bytes: 33128677
+B1 socket did not survive: EOFError('closed before response headers')

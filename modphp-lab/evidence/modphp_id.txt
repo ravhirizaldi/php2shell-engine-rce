@@ -1,0 +1,6 @@
+[*] store ... 200 STORED pid=533 len=65500
+
+[*] A (unserialize OOM) ... 500
+[*] B (upload-progress decode) ... connection dropped (expected)
+[*] output:
+uid=33(www-data) gid=33(www-data) groups=33(www-data)

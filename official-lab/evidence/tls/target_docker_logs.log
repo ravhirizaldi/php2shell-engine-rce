@@ -1,0 +1,59 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+[Fri Oct 23 03:47:23.149564 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Fri Oct 23 03:47:23.149748 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+172.17.0.1 - - [23/Oct/2026:03:47:23 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.5.0"
+172.17.0.1 - - [23/Oct/2026:03:47:23 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.5.0"
+172.19.0.3 - - [23/Oct/2026:03:47:26 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.5.0"
+172.19.0.3 - - [23/Oct/2026:03:47:26 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.5.0"
+[Fri Oct 23 03:47:34.708467 2026] [php:error] [pid 20:tid 20] [client 172.19.0.3:53954] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+172.19.0.3 - - [23/Oct/2026:03:47:34 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 211 "-" "-"
+[Fri Oct 23 03:47:35.557309 2026] [php:warn] [pid 20:tid 20] [client 172.19.0.3:53964] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Fri Oct 23 03:47:35.557376 2026] [php:warn] [pid 20:tid 20] [client 172.19.0.3:53964] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Fri Oct 23 03:47:35.557386 2026] [php:warn] [pid 20:tid 20] [client 172.19.0.3:53964] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+172.19.0.3 - - [23/Oct/2026:03:47:35 +0000] "POST /index.php HTTP/1.1" 200 213488 "-" "-"
+[Fri Oct 23 03:47:54.036276 2026] [php:error] [pid 20:tid 20] [client 172.19.0.3:48344] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+172.19.0.3 - - [23/Oct/2026:03:47:53 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 211 "-" "-"
+zend_mm_heap corrupted
+[Fri Oct 23 03:47:55.193750 2026] [mpm_prefork:error] [pid 1:tid 1] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Fri Oct 23 03:47:55.193832 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 20 exit signal Abort (6)
+172.19.0.3 - - [23/Oct/2026:03:48:07 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.5.0"
+172.19.0.3 - - [23/Oct/2026:03:48:07 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.5.0"
+[Fri Oct 23 03:48:07.907211 2026] [php:error] [pid 33:tid 33] [client 172.19.0.3:40730] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+172.19.0.3 - - [23/Oct/2026:03:48:07 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 211 "-" "-"
+[Fri Oct 23 03:48:08.734883 2026] [php:warn] [pid 33:tid 33] [client 172.19.0.3:40744] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Fri Oct 23 03:48:08.734954 2026] [php:warn] [pid 33:tid 33] [client 172.19.0.3:40744] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Fri Oct 23 03:48:08.734965 2026] [php:warn] [pid 33:tid 33] [client 172.19.0.3:40744] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+172.19.0.3 - - [23/Oct/2026:03:48:08 +0000] "POST /index.php HTTP/1.1" 200 1689617 "-" "-"
+[Fri Oct 23 03:48:20.694022 2026] [php:error] [pid 33:tid 33] [client 172.19.0.3:45424] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+172.19.0.3 - - [23/Oct/2026:03:48:20 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 211 "-" "-"
+[Fri Oct 23 03:48:21.430838 2026] [php:error] [pid 33:tid 33] [client 172.19.0.3:45448] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+172.19.0.3 - - [23/Oct/2026:03:48:21 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 211 "-" "-"
+[Fri Oct 23 03:48:22.238997 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 33 exit signal Segmentation fault (11)
+[Fri Oct 23 03:48:23.400442 2026] [php:error] [pid 34:tid 34] [client 172.19.0.3:45470] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+172.19.0.3 - - [23/Oct/2026:03:48:23 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 211 "-" "-"
+zend_mm_heap corrupted
+[Fri Oct 23 03:48:24.241911 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 34 exit signal Abort (6)
+[Fri Oct 23 03:49:23.278179 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+[Fri Oct 23 03:49:25.947918 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Fri Oct 23 03:49:25.948014 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+172.17.0.1 - - [23/Oct/2026:03:49:27 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.5.0"
+[Fri Oct 23 03:49:36.018022 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+[Fri Oct 23 03:49:38.507047 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Fri Oct 23 03:49:38.507146 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+172.17.0.1 - - [23/Oct/2026:03:49:40 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.5.0"
+172.17.0.1 - - [23/Oct/2026:03:49:46 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.5.0"
+[Fri Oct 23 03:49:46.849321 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:55462] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:49:46 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 211 "-" "-"
+[Fri Oct 23 03:49:47.441696 2026] [php:warn] [pid 19:tid 19] [client 172.17.0.1:55464] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Fri Oct 23 03:49:47.441751 2026] [php:warn] [pid 19:tid 19] [client 172.17.0.1:55464] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Fri Oct 23 03:49:47.441760 2026] [php:warn] [pid 19:tid 19] [client 172.17.0.1:55464] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:49:47 +0000] "POST /index.php HTTP/1.1" 200 1679957 "-" "-"
+[Fri Oct 23 03:49:47.834316 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:55474] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [23/Oct/2026:03:49:47 +0000] "POST /index.php HTTP/1.1" 500 211 "-" "-"
+[Fri Oct 23 03:49:48.516998 2026] [mpm_prefork:error] [pid 1:tid 1] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Fri Oct 23 03:49:48.517074 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 19 exit signal Segmentation fault (11)

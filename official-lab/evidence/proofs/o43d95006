@@ -1,0 +1,10 @@
+total 72
+drwxr-xr-x   1 root     root     4096 Oct 23 03:00 .
+drwxr-xr-x   1 root     root     4096 Oct 23 03:00 ..
+-rwxr-xr-x   1 root     root        0 Oct 23 03:00 .dockerenv
+lrwxrwxrwx   1 root     root        7 Jul 17 17:05 bin -> usr/bin
+drwxr-xr-x   2 root     root     4096 Jul 17 17:05 boot
+drwxr-xr-x   5 root     root      340 Oct 23 03:00 dev
+drwxr-xr-x   1 root     root     4096 Oct 23 03:00 etc
+drwxr-xr-x   2 root     root     4096 Jul 17 17:05 home
+lrwxrwxrwx   1 root     root        7 Jul 17 17:05 lib -> usr/lib

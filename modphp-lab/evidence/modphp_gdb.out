@@ -1,0 +1,23 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007fdb5f9553a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x7fdb5eaf8de0
+Breakpoint 2 at 0x7fdb5f919090
+Breakpoint 3 at 0x7fdb5eb9d5e0
+VARTMP#1 vh=0x7ffdc3cea898 d=0x7fdb5ca6c000 head=38c0a65cdb7f0000 last=0x7fdb5ca6c038 used=0x3fa data0=0x7fdb5ca6e100 marker=('0x7fdb5ca6a018', 'd-8168', 'fileoff_if_base=0x1fe8')
+VARTMP#2 vh=0x7ffdc3cea898 d=0x7fdb5ca6c000 head=00c0a75cdb7f0000 last=0x7fdb5ca7c000 used=0x3fa data0=0x7fdb5ca6e100 marker=('0x7fdb5ca6a018', 'd-8168', 'fileoff_if_base=0x1fe8')
+RCDTOR ref=0x7fdb5ca6e180 rc=0 type_info=10
+SYSTEM rdi=0x7fdb5ca6e300 cmd=rm -f /var/www/html/out/evid.txt; (id) > /var/www/html/out/evid.txt 2>&1
+[Detaching after vfork from child process 530]
+
+Program received signal SIGABRT, Aborted.
+0x00007fdb5f95a69c in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#0  0x00007fdb5f95a69c in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fdb5f905c42 in raise () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fdb5f8ee4ac in abort () from /lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007fdb5e850805 in zend_mm_panic.constprop () from /usr/lib/apache2/modules/libphp.so
+#4  0x00007fdb5e850b6b in _efree.cold () from /usr/lib/apache2/modules/libphp.so
+#5  0x00007fdb5ebb2898 in zend_array_destroy () from /usr/lib/apache2/modules/libphp.so
+#6  0x00007fdb5eb9d635 in zend_reference_destroy () from /usr/lib/apache2/modules/libphp.so
+#7  0x00007fdb5ebaffa2 in zend_hash_update () from /usr/lib/apache2/modules/libphp.so
+[Inferior 1 (process 473) detached]
